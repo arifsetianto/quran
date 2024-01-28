@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Me-Quran';
+    font-style: normal;
+    src: url("../../public/storage/fonts/me_quran.ttf");
+}
+
+.quran-text {
+    font-family: Me-Quran, serif;
+}
+
+.diamond {
+    content: "";
+    width: 2.5rem;
+    height: 2.5rem;
+    background: #b89e6f;
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    border-radius: 0.375rem;
+
+    .text {
+        -ms-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+}
