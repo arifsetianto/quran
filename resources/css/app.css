@@ -5,7 +5,7 @@
 @font-face {
     font-family: 'Me-Quran';
     font-style: normal;
-    src: url("/public/storage/fonts/me_quran.ttf");
+    src: url("../fonts/me_quran.ttf");
 }
 
 .quran-text {
