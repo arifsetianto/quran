@@ -30,7 +30,7 @@ class ListChapters extends Component
         $this->chapters =
             Chapter::when(
                 $this->searchChapter !== '',
-                fn(Builder $query) => $query->where('tname', 'like', '%' . $this->searchChapter . '%')
+                fn(Builder $query) => $query->where('tname', 'ilike', '%' . $this->searchChapter . '%')
             )->get();
 
         return view(
