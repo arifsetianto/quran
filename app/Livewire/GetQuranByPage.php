@@ -167,7 +167,7 @@ class GetQuranByPage extends Component
 
                 if ($this->showComment) {
                     foreach ($quran->comments as $comment) {
-                        $contents .= '<div class="max-w-sm mt-4 p-4 bg-blue-950/25 rounded-lg dark:bg-gray-800 dark:border-gray-700">';
+                        $contents .= '<div class="max-w mt-4 p-4 bg-blue-950/25 rounded-lg dark:bg-gray-800 dark:border-gray-700">';
                         $contents .= '<p class="text-base font-semibold text-blue-950 dark:text-gray-300 leading-relaxed italic">';
                         $contents .= '<span class="font-extrabold leading-none tracking-tight text-blue-950">Comment</span> : ' . $comment->text;
                         $contents .= '</p>';
