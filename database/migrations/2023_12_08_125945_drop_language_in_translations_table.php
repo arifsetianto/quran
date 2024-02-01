@@ -22,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('translations', function (Blueprint $table) {
-            $table->enum('language', ['english', 'indonesian', 'thai']);
+            $table->enum('language', ['english', 'indonesian', 'thai'])->nullable();
         });
     }
 };

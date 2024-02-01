@@ -84,7 +84,7 @@ class GetQuranByPage extends Component
                 if ($quran->verse == 1) {
                     $currentChapter = Chapter::find($quran->chapter_id);
                     $contents .= '<div class="scale-100 p-10 text-center bg-blue-950 w-full dark:bg-gray-800/50 dark:bg-gradient-to-bl from-blue-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-lg shadow-blue-500/20 dark:shadow-none transition-all duration-250 focus:outline focus:outline-2 focus:outline-blue-500">';
-                    $contents .= "<p class='text-2xl font-semibold text-gold-400 dark:text-gray-300 leading-relaxed quran-text'>"; // Indicate end of a Sura if there are multiple Suras on one page
+                    $contents .= "<p class='text-2xl font-normal text-gold-400 dark:text-gray-300 leading-relaxed quran-text'>"; // Indicate end of a Sura if there are multiple Suras on one page
                     $contents .= "سورة  " . $currentChapter->name;
                     $contents .= '</p>';
                     $contents .= "<p class='mt-2 text-3xl font-semibold text-white dark:text-gray-300 leading-relaxed'>"; // Indicate end of a Sura if there are multiple Suras on one page
@@ -145,7 +145,7 @@ class GetQuranByPage extends Component
                 $contents .= '</div>';
                 $contents .= '</div>';
                 $contents .= '<div class="text-right">';
-                $contents .= '<p class="mb-14 text-4xl font-semibold text-gray-900 dark:text-gray-300 quran-text leading-loose">';
+                $contents .= '<p class="mb-14 text-4xl font-normal text-gray-900 dark:text-gray-300 quran-text leading-loose">';
                 $contents .= !$this->showBismillah &&
                              $quran->verse === 1 &&
                              $quran->chapter_id !== 1 &&

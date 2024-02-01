@@ -50,7 +50,7 @@
                         </div>
 
                         <div class="text-center">
-                            <p class="quran-text text-xl font-bold text-gold-400 dark:text-white">
+                            <p class="quran-text text-xl font-normal text-gold-400 dark:text-white">
                                 {{ $chapter->name }}
                             </p>
                         </div>

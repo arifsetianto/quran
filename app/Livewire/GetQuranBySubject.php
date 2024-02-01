@@ -112,7 +112,7 @@ class GetQuranBySubject extends Component
                 $contents .= '</div>';
                 $contents .= '</div>';
                 $contents .= '<div class="text-right">';
-                $contents .= '<p class="mb-14 text-4xl font-semibold text-gray-900 dark:text-gray-300 quran-text leading-loose">';
+                $contents .= '<p class="mb-14 text-4xl font-normal text-gray-900 dark:text-gray-300 quran-text leading-loose">';
                 $contents .= !$this->showBismillah &&
                              $quran->verse === 1 &&
                              $quran->chapter_id !== 1 &&
