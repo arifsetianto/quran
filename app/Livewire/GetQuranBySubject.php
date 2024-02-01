@@ -112,7 +112,7 @@ class GetQuranBySubject extends Component
                 $contents .= '</div>';
                 $contents .= '</div>';
                 $contents .= '<div class="text-right">';
-                $contents .= '<p class="mb-14 text-4xl font-normal text-gray-900 dark:text-gray-300 quran-text leading-loose">';
+                $contents .= '<p class="mb-14 text-3xl font-normal text-gray-900 dark:text-gray-300 quran-text leading-loose">';
                 $contents .= !$this->showBismillah &&
                              $quran->verse === 1 &&
                              $quran->chapter_id !== 1 &&
@@ -127,18 +127,20 @@ class GetQuranBySubject extends Component
                 $contents .= '<div class="mt-8">';
 
                 if ($this->showTranslation) {
-                    $contents .= '<p class="mt-6 text-lg font-semibold text-gray-900 dark:text-gray-300 leading-relaxed">';
-                    $contents .= '<span class="font-extrabold leading-none tracking-tight text-blue-950">Translation</span> : ' .
+                    $contents .= '<p class="mt-6 text-base font-semibold text-gray-900 dark:text-gray-300 leading-relaxed">';
+                    $contents .= '<span class="font-extrabold leading-none tracking-tight text-gray-900">Translation</span> : ' .
                                  $quran->translation->text;
                     $contents .= '</p>';
                 }
 
                 if ($this->showComment) {
                     foreach ($quran->comments as $comment) {
-                        $contents .= '<p class="mt-6 text-lg font-semibold text-gray-900 dark:text-gray-300 leading-relaxed">';
+                        $contents .= '<div class="max-w-sm mt-4 p-4 bg-blue-950/25 rounded-lg dark:bg-gray-800 dark:border-gray-700">';
+                        $contents .= '<p class="text-base font-semibold text-blue-950 dark:text-gray-300 leading-relaxed italic">';
                         $contents .= '<span class="font-extrabold leading-none tracking-tight text-blue-950">Comment</span> : ' .
                                      $comment->text;
                         $contents .= '</p>';
+                        $contents .= '</div>';
                     }
                 }
 

@@ -86,7 +86,7 @@
                             </div>
                         </div>
                         <div class="text-right">
-                            <p class="mb-14 text-4xl font-normal text-gray-900 dark:text-gray-300 quran-text leading-loose">
+                            <p class="mb-14 text-3xl font-normal text-gray-900 dark:text-gray-300 quran-text leading-loose">
                                 @if(!$showBismillah && $quran->verse === 1 && $quran->chapter_id !== 1 && $quran->chapter_id !== 9)
                                     {!! preg_replace('/ ([ۖ-۩])/u', '<span class="text-gold-400">&nbsp;$1</span>', preg_replace('/^(([^ ]+ ){4})/u', '', $quran->text)) !!}
                                 @else
@@ -96,16 +96,20 @@
                         </div>
                         <div class="mt-8">
                             @if($showTranslation)
-                                <p class="mt-6 text-lg font-semibold text-gray-900 dark:text-gray-300 leading-relaxed">
-                                    <span class="font-extrabold leading-none tracking-tight text-blue-950">Translation</span> : {{ $quran->translation->text }}
+                                <p class="mt-6 text-base font-semibold text-gray-900 dark:text-gray-300 leading-relaxed">
+                                    <span
+                                        class="font-extrabold leading-none tracking-tight text-gray-900">Translation</span>: {{ $quran->translation->text }}
                                 </p>
                             @endif
 
                             @if($showComment)
                                 @foreach($quran->comments as $comment)
-                                    <p class="mt-6 text-lg font-semibold text-gray-900 dark:text-gray-300 leading-relaxed">
-                                        <span class="font-extrabold leading-none tracking-tight text-blue-950">Comment</span> : {{ $comment->text }}
-                                    </p>
+                                    <div
+                                        class="max-w-sm mt-4 p-4 bg-blue-950/25 rounded-lg dark:bg-gray-800 dark:border-gray-700">
+                                        <p class="text-base font-semibold text-blue-950 dark:text-gray-300 leading-relaxed italic">
+                                            <span class="font-extrabold leading-none tracking-tight text-blue-950">Comment</span>: {{ $comment->text }}
+                                        </p>
+                                    </div>
                                 @endforeach
                             @endif
                         </div>
