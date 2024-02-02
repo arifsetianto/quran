@@ -28,8 +28,9 @@
                 <div class="w-full max-w-screen-xl mx-auto py-4 md:py-8">
                     <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
                     <span class="block text-sm text-gray-500 text-center dark:text-gray-400">Quran text provided by: <a href="http://tanzil.net/" class="hover:underline">Tanzil.net</a></span>
-                    <span class="block py-1 text-sm text-gray-500 text-center dark:text-gray-400">Quran Thai-translation provided by: <a href="http://tanzil.net/" class="hover:underline">Arab Thai Alumni University</a></span>
-                    <span class="block text-sm text-gray-500 text-center dark:text-gray-400">Website provided by: <a href="http://thaiquran.org" class="hover:underline">Thaiquran.org</a></span>
+                    <span class="block pt-1 text-sm text-gray-500 text-center dark:text-gray-400">Quran Thai-translation and commentary provided by: <a href="http://tanzil.net/" class="hover:underline">Arab Thai Alumni University</a></span>
+                    <span class="block pt-1 text-sm text-gray-500 text-center dark:text-gray-400">Quran Recitations by: Mishary Rashid Alafasy (<a href="https://versebyversequran.com/" class="hover:underline">www.versebyversequran.com</a>)</span>
+                    <span class="block pt-1 text-sm text-gray-500 text-center dark:text-gray-400">Website provided by: Thaiquran Foundation (<a href="https://thaiquran.org" class="hover:underline">www.thaiquran.org</a>)</span>
                 </div>
             </footer>
 

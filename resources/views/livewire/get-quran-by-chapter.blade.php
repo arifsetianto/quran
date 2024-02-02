@@ -66,7 +66,7 @@
                             </div>
                             <div class="ml-2 flex">
                                 <audio id="playAudio-{{ $quran->id }}"
-                                       src="{{ asset(sprintf('storage/recitations/%s.mp3', sprintf("%'.03d", $quran->chapter_id) . sprintf("%'.03d", $quran->verse))) }}"></audio>
+                                       src="{{ asset(sprintf('storage/recitations/verses/%s.mp3', sprintf("%'.03d", $quran->chapter_id) . sprintf("%'.03d", $quran->verse))) }}"></audio>
                                 <button onclick="play({{ $quran->id }})">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                          class="w-6 h-6 text-gray-900 dark:text-gray-400 leading-relaxed"

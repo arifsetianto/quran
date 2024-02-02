@@ -92,7 +92,7 @@ class GetQuranBySubject extends Component
                              '" src="' .
                              asset(
                                  sprintf(
-                                     'storage/recitations/%s.mp3',
+                                     'storage/recitations/verses/%s.mp3',
                                      sprintf("%'.03d", $quran->chapter_id) . sprintf("%'.03d", $quran->verse)
                                  )
                              ) .
