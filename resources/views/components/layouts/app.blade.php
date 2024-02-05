@@ -27,10 +27,12 @@
             <footer class="my-4">
                 <div class="w-full max-w-screen-xl mx-auto py-4 md:py-8">
                     <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-                    <span class="block text-sm text-gray-500 text-center dark:text-gray-400">Quran text provided by: <a href="http://tanzil.net/" class="hover:underline">Tanzil.net</a></span>
-                    <span class="block pt-1 text-sm text-gray-500 text-center dark:text-gray-400">Quran Thai-translation and commentary provided by: <a href="http://tanzil.net/" class="hover:underline">Arab Thai Alumni University</a></span>
-                    <span class="block pt-1 text-sm text-gray-500 text-center dark:text-gray-400">Quran Recitations by: Mishary Rashid Alafasy (<a href="https://versebyversequran.com/" class="hover:underline">www.versebyversequran.com</a>)</span>
-                    <span class="block pt-1 text-sm text-gray-500 text-center dark:text-gray-400">Website provided by: Thaiquran Foundation (<a href="https://thaiquran.org" class="hover:underline">www.thaiquran.org</a>)</span>
+                    <span class="block text-sm text-gray-500 text-center dark:text-gray-400">Quran text provided by: <a href="http://tanzil.net/" class="hover:underline text-blue-600">Tanzil.net</a></span>
+                    <span class="block pt-1 text-sm text-gray-500 text-center dark:text-gray-400">Quran Thai-translation and commentary provided by: <a href="https://facebook.com/smakomnka" class="hover:underline text-blue-600">Arab Thai Alumni University</a></span>
+                    <span class="block pt-1 text-sm text-gray-500 text-center dark:text-gray-400">Quran Recitations by: <a href="https://versebyversequran.com/" class="hover:underline text-blue-600">Mishary Rashid Alafasy</a></span>
+                    <span class="block pt-1 text-sm text-gray-500 text-center dark:text-gray-400">ThaiQuran QR Code & Printing by: <a href="https://syaamilquran.com" class="hover:underline text-blue-600">Syaamil Quran</a></span>
+
+                    <span class="block pt-5 text-sm text-gray-500 text-center dark:text-gray-400">Copyright © {{ date('Y') }} by ThaiQuran Foundation. All Rights Reserved.</span>
                 </div>
             </footer>
 
