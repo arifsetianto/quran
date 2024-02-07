@@ -27,44 +27,88 @@
             <footer class="my-4">
                 <div class="w-full max-w-screen-xl mx-auto py-4 md:py-8">
                     <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-                    <span class="block text-sm text-gray-500 text-center dark:text-gray-400">Quran text provided by: <a href="http://tanzil.net/" class="hover:underline text-blue-600">Tanzil.net</a></span>
-                    <span class="block pt-1 text-sm text-gray-500 text-center dark:text-gray-400">Quran Thai-translation and commentary provided by: <a href="https://facebook.com/smakomnka" class="hover:underline text-blue-600">Arab Thai Alumni University</a></span>
-                    <span class="block pt-1 text-sm text-gray-500 text-center dark:text-gray-400">Quran Recitations by: <a href="https://versebyversequran.com/" class="hover:underline text-blue-600">Mishary Rashid Alafasy</a></span>
-                    <span class="block pt-1 text-sm text-gray-500 text-center dark:text-gray-400">ThaiQuran QR Code & Printing by: <a href="https://syaamilquran.com" class="hover:underline text-blue-600">Syaamil Quran</a></span>
-
-                    <span class="block pt-5 text-sm text-gray-500 text-center dark:text-gray-400">Copyright © {{ date('Y') }} by ThaiQuran Foundation. All Rights Reserved.</span>
+                    <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">Copyright © 2024 by ThaiQuran Foundation. All Rights Reserved.</span>
                 </div>
             </footer>
-
         </div>
     </div>
 
     <script>
-        function play(id) {
-            let playAudio = document.getElementById('playAudio-' + id);
-            let iconPlay = document.getElementById('iconPlay-' + id);
-            let iconPause = document.getElementById('iconPause-' + id);
+        const audioContainers = document.querySelectorAll('.audioContainer');
+        const audioElements = document.querySelectorAll('.audioContainer audio');
+        const playPauseButtons = document.querySelectorAll('.playPauseButton');
+        let currentAudio = null;
 
-            if (playAudio.paused) {
-                document.querySelectorAll('audio').forEach(el => el.pause());
-                document.querySelectorAll('[id*="iconPlay"]').forEach(el => el.classList.remove('hidden'));
-                document.querySelectorAll('[id*="iconPause"]').forEach(el => el.classList.add('hidden'));
-
-                playAudio.play();
-                iconPlay.classList.add('hidden');
-                iconPause.classList.remove('hidden');
-
-                playAudio.addEventListener('ended', function () {
-                    playAudio.currentTime = 0;
-                    iconPlay.classList.remove('hidden');
-                    iconPause.classList.add('hidden');
+        function playAudio(audioElement, playPauseButton) {
+            if (currentAudio !== audioElement) {
+                // Pause currently playing audio, if any
+                if (currentAudio) {
+                    currentAudio.pause();
+                    currentAudio.currentTime = 0; // Reset to the beginning
+                    const currentPlayPauseButton = currentAudio.parentElement.querySelector('.playPauseButton');
+                    const currentPlayIcon = currentPlayPauseButton.querySelector('.playIcon');
+                    currentPlayIcon.innerHTML = '<path fill-rule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clip-rule="evenodd"/>';
+                }
+                // Play new audio
+                audioElement.play().then(() => {
+                    // If successfully played, update the currentAudio
+                    currentAudio = audioElement;
+                    const playIcon = playPauseButton.querySelector('.playIcon');
+                    playIcon.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    playIcon.innerHTML = '<path fill-rule="evenodd" d="M6.75 5.25a.75.75 0 0 1 .75-.75H9a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H7.5a.75.75 0 0 1-.75-.75V5.25Zm7.5 0A.75.75 0 0 1 15 4.5h1.5a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H15a.75.75 0 0 1-.75-.75V5.25Z" clip-rule="evenodd"/>';
+                }).catch(error => {
+                    // Handle error if unable to play
+                    console.log('Failed to play audio:', error);
                 });
             } else {
-                playAudio.pause();
-                iconPlay.classList.remove('hidden');
-                iconPause.classList.add('hidden');
+                // Pause if the same audio is clicked again
+                if (audioElement.paused) {
+                    // Check if the audio is paused before playing
+                    audioElement.play().then(() => {
+                        // If successfully played, update the currentAudio
+                        currentAudio = audioElement;
+                        const playIcon = playPauseButton.querySelector('.playIcon');
+                        playIcon.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        playIcon.innerHTML = '<path fill-rule="evenodd" d="M6.75 5.25a.75.75 0 0 1 .75-.75H9a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H7.5a.75.75 0 0 1-.75-.75V5.25Zm7.5 0A.75.75 0 0 1 15 4.5h1.5a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H15a.75.75 0 0 1-.75-.75V5.25Z" clip-rule="evenodd"/>';
+                    }).catch(error => {
+                        // Handle error if unable to play
+                        console.log('Failed to play audio:', error);
+                    });
+                } else {
+                    audioElement.pause();
+                    audioElement.currentTime = 0; // Reset to the beginning
+                    currentAudio = null;
+                    const playIcon = playPauseButton.querySelector('.playIcon');
+                    playIcon.innerHTML = '<path fill-rule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clip-rule="evenodd"/>';
+                }
             }
         }
+
+        function handleAudioEnded(audioElement, playPauseButton, index) {
+            audioElement.addEventListener('ended', function() {
+                currentAudio = null;
+                audioElement.currentTime = 0; // Reset to the beginning when audio ends
+                const playIcon = playPauseButton.querySelector('.playIcon');
+                playIcon.innerHTML = '<path fill-rule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clip-rule="evenodd"/>';
+                playSequentially(index + 1);
+            });
+        }
+
+        function playSequentially(index) {
+            if (index < audioElements.length) {
+                const audio = audioElements[index];
+                const playPauseButton = playPauseButtons[index];
+                playAudio(audio, playPauseButton);
+                handleAudioEnded(audio, playPauseButton, index);
+            }
+        }
+
+        audioContainers.forEach((container, index) => {
+            const playPauseButton = playPauseButtons[index];
+            playPauseButton.addEventListener('click', function() {
+                playSequentially(index);
+            });
+        });
     </script>
     </body>
 </html>

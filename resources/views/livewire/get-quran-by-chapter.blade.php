@@ -31,9 +31,9 @@
         </div>
     </nav>
 
-    <div class="mt-20 flex justify-center items-center">
+    <div class="mt-20">
         <div
-            class="scale-100 p-10 text-center bg-blue-950 w-full dark:bg-gray-800/50 dark:bg-gradient-to-bl from-blue-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-lg shadow-blue-500/20 dark:shadow-none transition-all duration-250 focus:outline focus:outline-2 focus:outline-blue-500">
+            class="scale-100 p-10 text-center bg-blue-950 w-full dark:bg-gray-800/50 dark:bg-gradient-to-bl from-blue-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg dark:shadow-none transition-all duration-250 focus:outline focus:outline-2 focus:outline-blue-500">
             <p class="text-2xl font-normal text-gold-400 dark:text-gray-300 leading-relaxed quran-text">
                 سورة {{ $chapter->name }}
             </p>
@@ -52,10 +52,54 @@
 
     <div class="mt-10">
         <div class="grid grid-cols-1 md:grid-cols-1 gap-6 lg:gap-8">
+            <audio id="playAudio-default"
+                   src="{{ asset('storage/recitations/verses/bismillah.mp3') }}"></audio>
             @forelse($qurans as $quran)
+                @if($quran->verse === 1)
+                    @if($chapter->id !== 1 && $chapter->id !== 9)
+                        <div class="text-center">
+                            <p class="text-3xl font-normal text-gray-900 dark:text-gray-300 quran-text leading-loose">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ </p>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <button class="inline-flex" data-modal-target="surah-info-modal" data-modal-toggle="surah-info-modal">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-blue-900 dark:text-gray-400 leading-relaxed">
+                                        <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 0 1 .67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 1 1-.671-1.34l.041-.022ZM12 9a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="ml-1 font-semibold tracking-tight text-blue-900">Surah Info</span>
+                                </button>
+                            </div>
+                            <div class="audioContainer">
+                                <audio id="playAudio-bismillah"
+                                       src="{{ asset('storage/recitations/verses/bismillah.mp3') }}"></audio>
+                                <button class="playPauseButton inline-flex">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                         class="w-6 h-6 text-gray-900 dark:text-gray-400 leading-relaxed playIcon">
+                                        <path fill-rule="evenodd"
+                                              d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z"
+                                              clip-rule="evenodd"/>
+                                    </svg>
+                                    <span class="ml-1 font-semibold tracking-tight">Play Audio</span>
+                                </button>
+                            </div>
+                        </div>
+                        <hr class="w-full h-0.5 mx-auto bg-gold-400 border-0 rounded md:my-10 dark:bg-gray-700">
+                    @else
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <button class="inline-flex" data-modal-target="surah-info-modal" data-modal-toggle="surah-info-modal">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-blue-900 dark:text-gray-400 leading-relaxed">
+                                        <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 0 1 .67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 1 1-.671-1.34l.041-.022ZM12 9a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="ml-1 font-semibold tracking-tight text-blue-900">Surah Info</span>
+                                </button>
+                            </div>
+                        </div>
+                    @endif
+                @endif
                 <div
                     href="{{ route('get-quran-by-chapter', ['surah' => $quran->chapter_id, 'showTranslation' => $showTranslation, 'showComment' => $showComment]) }}"
-                    class="scale-100 py-6 flex transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500 border-b-2 border-blue-950">
+                    class="scale-100 py-6 flex transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500 border-b-2 border-gold-400">
                     <div class="w-full text-gray-500 dark:text-gray-400 text-sm leading-relaxed"
                          wire:key="quran-{{ $quran->id }}">
                         <div class="flex justify-start items-center mb-8">
@@ -64,25 +108,21 @@
                                     {{ $quran->chapter->id }}:{{ $quran->verse }}
                                 </p>
                             </div>
-                            <div class="ml-2 flex">
-                                <audio id="playAudio-{{ $quran->id }}"
-                                       src="{{ asset(sprintf('storage/recitations/verses/%s.mp3', sprintf("%'.03d", $quran->chapter_id) . sprintf("%'.03d", $quran->verse))) }}"></audio>
-                                <button onclick="play({{ $quran->id }})">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                         class="w-6 h-6 text-gray-900 dark:text-gray-400 leading-relaxed"
-                                         id="iconPlay-{{ $quran->id }}">
-                                        <path fill-rule="evenodd"
-                                              d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z"
-                                              clip-rule="evenodd"/>
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                         class="w-6 h-6 text-gray-900 dark:text-gray-400 leading-relaxed hidden"
-                                         id="iconPause-{{ $quran->id }}">
-                                        <path fill-rule="evenodd"
-                                              d="M6.75 5.25a.75.75 0 0 1 .75-.75H9a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H7.5a.75.75 0 0 1-.75-.75V5.25Zm7.5 0A.75.75 0 0 1 15 4.5h1.5a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H15a.75.75 0 0 1-.75-.75V5.25Z"
-                                              clip-rule="evenodd"/>
-                                    </svg>
-                                </button>
+                            <div class="ml-2">
+                                <div id="playlist">
+                                    <div class="audioContainer flex">
+                                        <audio id="playAudio-{{ $quran->id }}"
+                                               src="{{ asset(sprintf('storage/recitations/verses/%s.mp3', sprintf("%'.03d", $quran->chapter_id) . sprintf("%'.03d", $quran->verse))) }}"></audio>
+                                        <button class="playPauseButton">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                                 class="w-6 h-6 text-gray-900 dark:text-gray-400 leading-relaxed playIcon">
+                                                <path fill-rule="evenodd"
+                                                      d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z"
+                                                      clip-rule="evenodd"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="text-right">
@@ -220,6 +260,79 @@
                                     <div
                                         class="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-blue-950"></div>
                                 </label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="surah-info-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative p-4 w-full max-w-md max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                        Surah Info
+                    </h3>
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm h-8 w-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="surah-info-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5">
+                    <ul class="max-w-md divide-y divide-gray-200 dark:divide-gray-700">
+                        <li class="pb-3 sm:pb-4">
+                            <div class="flex items-center space-x-4 rtl:space-x-reverse">
+                                <div class="flex-1 min-w-0">
+                                    <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                        Quran text provided by:
+                                    </p>
+                                    <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                        <a href="http://tanzil.net/" class="hover:underline text-blue-600">Tanzil.net</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="py-3 sm:py-4">
+                            <div class="flex items-center space-x-4 rtl:space-x-reverse">
+                                <div class="flex-1 min-w-0">
+                                    <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                        Quran Thai-translation and commentary provided by:
+                                    </p>
+                                    <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                        <a href="https://facebook.com/smakomnka" class="hover:underline text-blue-600">Arab Thai Alumni University</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="py-3 sm:py-4">
+                            <div class="flex items-center space-x-4 rtl:space-x-reverse">
+                                <div class="flex-1 min-w-0">
+                                    <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                        Quran Recitations by:
+                                    </p>
+                                    <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                        <a href="https://versebyversequran.com/" class="hover:underline text-blue-600">Mishary Rashid Alafasy</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="py-3 sm:py-4">
+                            <div class="flex items-center space-x-4 rtl:space-x-reverse">
+                                <div class="flex-1 min-w-0">
+                                    <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                        ThaiQuran QR Code & Printing by:
+                                    </p>
+                                    <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                        <a href="https://syaamilquran.com" class="hover:underline text-blue-600">Syaamil Quran</a>
+                                    </p>
+                                </div>
                             </div>
                         </li>
                     </ul>
