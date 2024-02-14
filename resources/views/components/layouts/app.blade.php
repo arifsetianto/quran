@@ -18,6 +18,11 @@
 
         <!-- Styles -->
         @vite(['resources/css/app.css','resources/js/app.js'])
+
+        <!-- PWA  -->
+        <meta name="theme-color" content="#6777ef"/>
+        <link rel="apple-touch-icon" href="{{ asset('images/favicon/apple-touch-icon.png') }}">
+        <link rel="manifest" href="{{ asset('/manifest.json') }}">
     </head>
     <body class="antialiased">
     <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
@@ -109,6 +114,24 @@
                 playSequentially(index);
             });
         });
+    </script>
+
+    <script src="{{ asset('/sw.js') }}"></script>
+    <script>
+        if ("serviceWorker" in navigator) {
+            // Register a service worker hosted at the root of the
+            // site using the default scope.
+            navigator.serviceWorker.register("/sw.js").then(
+                (registration) => {
+                    console.log("Service worker registration succeeded:", registration);
+                },
+                (error) => {
+                    console.error(`Service worker registration failed: ${error}`);
+                },
+            );
+        } else {
+            console.error("Service workers are not supported.");
+        }
     </script>
     </body>
 </html>
