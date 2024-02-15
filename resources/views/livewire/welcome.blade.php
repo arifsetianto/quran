@@ -6,8 +6,8 @@
     </div>
 
     <div class="flex flex-col justify-center items-center mt-4">
-        <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-center text-blue-950 md:text-5xl lg:text-6xl dark:text-white">Welcome to <span class="text-blue-950">Thai</span><span class="text-gold-400">Quran</span> Online Translation</h1>
-        <p class="mb-6 text-lg font-normal text-center text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">ThaiQuran has wonderful documentation covering every aspect of the framework.</p>
+        <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-center text-blue-950 md:text-5xl lg:text-6xl dark:text-white">Welcome to <span class="text-blue-950">Thai</span><span class="text-gold-400">Quran</span> Online Reading</h1>
+        <p class="mb-6 text-lg font-normal text-center text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">ฟีเจอร์นี้พัฒนาขึ้นเพื่อช่วยเหลือผู้ที่จะศึกษาอัลกรุอาน เกณฑ์​การเลือกสำหรับเป้าหมายของผู้ที่จะศึกษาอัลกรุอาน ผู้เรียนสามารถอ่านตาม ซูเราะห์ หน้า หัวข้อเรื่อง หรือญุซ ของอัลกุรอาน​</p>
     </div>
 
     <div class="mt-6">
@@ -34,9 +34,9 @@
                                     </div>
                                 @endif
                             </h2>
-{{--                            <p class="mt-2 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">--}}
-{{--                                {{ $value['description'] }}--}}
-{{--                            </p>--}}
+                            <p class="mt-2 text-gray-100 dark:text-gray-400 text-sm leading-relaxed">
+                                {{ $value['description'] }}
+                            </p>
                         </div>
                     </div>
 

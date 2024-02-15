@@ -7,7 +7,7 @@
 
     <div class="flex flex-col justify-center items-center mt-4">
         <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-center text-blue-950 md:text-5xl lg:text-6xl dark:text-white">Quran by Surah</h1>
-        <p class="mb-6 text-lg font-normal text-center text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">ThaiQuran has wonderful documentation covering every aspect of the framework.</p>
+{{--        <p class="mb-6 text-lg font-normal text-center text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">ThaiQuran has wonderful documentation covering every aspect of the framework.</p>--}}
     </div>
 
     <div class="mt-6">
