@@ -3,6 +3,10 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- PWA  -->
+        <meta name="theme-color" content="#f3f4f6"/>
+        <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
+        <link rel="manifest" href="{{ asset('/manifest.json') }}">
 
         <title>{{ config('app.name') }} | {{ $title ?? 'Page Title' }}</title>
 
@@ -18,11 +22,6 @@
 
         <!-- Styles -->
         @vite(['resources/css/app.css','resources/js/app.js'])
-
-        <!-- PWA  -->
-        <meta name="theme-color" content="#ffffff"/>
-        <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
-        <link rel="manifest" href="{{ asset('/manifest.json') }}">
     </head>
     <body class="antialiased">
     <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">

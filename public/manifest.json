@@ -1,9 +1,9 @@
 {
     "name": "ThaiQuran",
-    "short_name": "ThaiQuran",
+    "short_name": "TQ",
     "start_url": "/index.php",
     "background_color": "#ffffff",
-    "description": "ThaiQuran",
+    "description": "ฟีเจอร์นี้พัฒนาขึ้นเพื่อช่วยเหลือผู้ที่จะศึกษาอัลกรุอาน เกณฑ์\u200Bการเลือกสำหรับเป้าหมายของผู้ที่จะศึกษาอัลกรุอาน ผู้เรียนสามารถอ่านตาม ซูเราะห์ หน้า หัวข้อเรื่อง หรือญุซ ของอัลกุรอาน\u200B",
     "display": "fullscreen",
     "theme_color": "#ffffff",
     "icons": [
