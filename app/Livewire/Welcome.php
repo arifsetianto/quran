@@ -18,7 +18,7 @@ class Welcome extends Component
                 'menu' => [
                     [
                         'title'          => 'Quran by Juz',
-                        'description'    => 'อ่านอัลกรุอานและคอตัมภายใน 30 วัน',
+                        'description'    => 'อัลกุรอานแบ่งตามญุซ',
                         'redirect_route' => route('list-chapters'),
                         'icon'           => '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-blue-500">
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
@@ -27,7 +27,7 @@ class Welcome extends Component
                     ],
                     [
                         'title'          => 'Quran by Surah',
-                        'description'    => 'อ่านอัลกุรอานด้วยตัวเอง',
+                        'description'    => 'อัลกุรอานแบ่งตามซูเราะฮ',
                         'redirect_route' => route('list-chapters'),
                         'icon'           => '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-blue-500">
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
@@ -36,7 +36,7 @@ class Welcome extends Component
                     ],
                     [
                         'title'          => 'Quran by Pages',
-                        'description'    => 'ท่องจำอัลกุรอานตามหน้า',
+                        'description'    => 'อัลกุรอานแบ่งตาม​หน้า',
                         'redirect_route' => route(
                             'get-quran-by-page',
                             ['page' => 1, 'showTranslation' => true, 'showComment' => true]
@@ -48,7 +48,7 @@ class Welcome extends Component
                     ],
                     [
                         'title'          => 'Quran by Subject Matters',
-                        'description'    => 'เรียนรู้อัลกุรอานตามหมวดหมู',
+                        'description'    => 'อัลกุรอานแบ่งตามหมวดหมู่​',
                         'redirect_route' => route(
                             'get-quran-by-subject',
                             ['subject' => 1, 'showTranslation' => true, 'showComment' => true]
