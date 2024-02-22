@@ -139,4 +139,6 @@
             </div>
         </div>
     </div>
+
+    <livewire:get-quran-info-modal/>
 </div>
