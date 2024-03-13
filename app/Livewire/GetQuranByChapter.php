@@ -33,7 +33,7 @@ class GetQuranByChapter extends Component
 
     public function render(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
-        $this->chapters = Chapter::where('tname', 'ilike', '%' . $this->searchChapter . '%')->get();
+        $this->chapters = Chapter::where('tname', 'LIKE', '%' . $this->searchChapter . '%')->get();
 
         return view('livewire.get-quran-by-chapter')->with(
             [
