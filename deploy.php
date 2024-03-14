@@ -20,6 +20,7 @@ set('git_ssh_command', 'ssh -o StrictHostKeyChecking=no');
 set('keep_releases', 5);
 
 set('writable_mode', 'chmod');
+set('writable_chmod_mode', '0775');
 
 add('shared_files', ['.env']);
 add('shared_dirs', ['storage']);
@@ -56,10 +57,9 @@ task('deploy:secrets', function () {
 });
 
 desc('Build assets');
-task('deploy:build', function () {
-    run('npm install');
-    run('npm run build');
-});
+task('deploy:build', [
+    'npm:install',
+]);
 
 task('deploy', [
     'deploy:prepare',
