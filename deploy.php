@@ -58,6 +58,7 @@ task('deploy:secrets', function () {
 desc('Build assets');
 task('deploy:build', [
     'npm:install',
+    run('npm run build'),
 ]);
 
 task('deploy', [
