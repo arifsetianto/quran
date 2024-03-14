@@ -56,10 +56,10 @@ task('deploy:secrets', function () {
 });
 
 desc('Build assets');
-task('deploy:build', '
-    npm install
-    npm run build
-');
+task('deploy:build', function () {
+    run('npm install');
+    run('npm run build');
+});
 
 task('deploy', [
     'deploy:prepare',
