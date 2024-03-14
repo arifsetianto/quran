@@ -11,6 +11,7 @@ set('bin/php', function () {
 });
 
 set('application', 'thaiquran');
+set('http_user', 'www-data');
 set('repository', 'https://github.com/arifsetianto/quran.git');
 
 set('git_tty', true);
@@ -18,7 +19,7 @@ set('git_ssh_command', 'ssh -o StrictHostKeyChecking=no');
 
 set('keep_releases', 5);
 
-set('writable_mode', 'chmod');
+//set('writable_mode', 'chmod');
 
 add('shared_files', ['.env']);
 add('shared_dirs', ['storage']);
@@ -26,7 +27,13 @@ add('writable_dirs', [
     'bootstrap/cache',
     'storage',
     'storage/app',
+    'storage/app/public',
     'storage/framework',
+    'storage/framework/cache',
+    'storage/framework/cache/data',
+    'storage/framework/sessions',
+    'storage/framework/views',
+    'storage/logs',
     'storage/logs',
 ]);
 
