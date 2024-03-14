@@ -39,7 +39,7 @@ host('thaiquran')
 ->set('remote_user', 'root')
 ->set('port', 22)
 ->set('branch', 'main')
-->set('deploy_path', '/var/www');
+->set('deploy_path', '/var/www/thaiquran');
 
 // Hooks
 
