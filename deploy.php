@@ -60,7 +60,7 @@ desc('Build assets');
 task('deploy:build', function () {
     cd('{{release_path}}');
     run('npm install');
-    run('npm run prod');
+    run('npm run build');
 });
 
 task('deploy', [
