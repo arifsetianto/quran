@@ -7,7 +7,7 @@ require 'contrib/npm.php';
 // Config
 
 set('bin/php', function () {
-    return '/usr/local/bin/php';
+    return '/usr/bin/php';
 });
 
 set('application', 'ThaiQuran');
