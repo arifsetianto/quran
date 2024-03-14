@@ -57,10 +57,11 @@ task('deploy:secrets', function () {
 });
 
 desc('Build assets');
-task('deploy:build', [
-    'npm:install',
-    'npm:run:prod',
-]);
+task('deploy:build', function () {
+    cd('{{release_path}}');
+    run('npm install');
+    run('npm run prod');
+});
 
 task('deploy', [
     'deploy:prepare',
