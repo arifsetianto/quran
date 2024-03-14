@@ -59,7 +59,7 @@ task('deploy:secrets', function () {
 desc('Build assets');
 task('deploy:build', [
     'npm:install',
-    'npm:run:build',
+    'npm:run:prod',
 ]);
 
 task('deploy', [
