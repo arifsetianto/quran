@@ -56,10 +56,10 @@ task('deploy:secrets', function () {
 });
 
 desc('Build assets');
-task('deploy:build', [
-    'npm:install',
-    run('npm run build'),
-]);
+task('deploy:build', '
+    npm install
+    npm run build
+');
 
 task('deploy', [
     'deploy:prepare',
@@ -72,5 +72,6 @@ task('deploy', [
     'deploy:unlock',
 ]);
 
+after('deploy:update_code', 'deploy:build');
 after('deploy:failed', 'deploy:unlock');
 before('deploy:symlink', 'artisan:migrate');
