@@ -10,7 +10,7 @@ set('bin/php', function () {
     return '/usr/bin/php';
 });
 
-set('application', 'ThaiQuran');
+set('application', 'thaiquran');
 set('repository', 'https://github.com/arifsetianto/quran.git');
 
 set('git_tty', true);
@@ -34,12 +34,12 @@ set('composer_options', '--verbose --prefer-dist --no-progress --no-interaction 
 
 // Hosts
 
-host('thaiquran')
-->setHostname('159.65.139.93')
-->set('remote_user', 'root')
-->set('port', 22)
+host('production')
+->setHostname(getenv('HOST'))
+->set('remote_user', getenv('USERNAME'))
+->set('port', getenv('PORT'))
 ->set('branch', 'main')
-->set('deploy_path', '/var/www/thaiquran');
+->set('deploy_path', '/var/www/{{application}}');
 
 // Hooks
 

@@ -47,5 +47,8 @@ jobs:
           ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
       - name: Deploy to Production
         env:
+          HOST: ${{ secrets.SERVER_HOST_PRODUCTION }}
+          USERNAME: ${{ secrets.SERVER_USERNAME_PRODUCTION }}
+          PORT: ${{ secrets.SERVER_PORT_PRODUCTION }}
           DOT_ENV: ${{ secrets.DOT_ENV_PRODUCTION }}
-        run: php vendor/bin/dep deploy thaiquran branch=main
+        run: php vendor/bin/dep deploy production branch=main
