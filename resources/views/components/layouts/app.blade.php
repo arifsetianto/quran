@@ -35,7 +35,8 @@
                         <div class="flex justify-between items-center">
                             <span>Copyright © {{ date('Y') }} by ThaiQuran Foundation. All Rights Reserved.</span>
                             <span>
-                                <a href="{{ route('privacy-policy') }}">Privacy Policy</a>
+                                <a href="{{ route('terms-conditions') }}">Terms & Conditions</a>
+                                <a href="{{ route('privacy-policy') }}" class="ml-2">Privacy Policy</a>
                             </span>
                         </div>
                     </span>

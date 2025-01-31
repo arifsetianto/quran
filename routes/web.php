@@ -7,6 +7,7 @@ use App\Livewire\ListChapters;
 use App\Livewire\GetQuranByChapter;
 use App\Livewire\PrivacyPolicy;
 use App\Livewire\RedirectQrPage;
+use App\Livewire\TermsConditions;
 use App\Livewire\Welcome;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', Welcome::class)->name('welcome');
 Route::get('/privacy-policy', PrivacyPolicy::class)->name('privacy-policy');
+Route::get('/terms-conditions', TermsConditions::class)->name('terms-conditions');
 Route::get('/chapters', ListChapters::class)->name('list-chapters');
 Route::get('/chapter/{surah}', GetQuranByChapter::class)->name('get-quran-by-chapter');
 Route::get('/page/{page}', GetQuranByPage::class)->name('get-quran-by-page');
