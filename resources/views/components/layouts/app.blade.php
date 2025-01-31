@@ -33,7 +33,7 @@
                     <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
                     <span class="block text-sm text-gray-500 text-center dark:text-gray-400">
                         <div class="flex justify-between items-center">
-                            <span>Copyright © 2024 by ThaiQuran Foundation. All Rights Reserved.</span>
+                            <span>Copyright © {{ date('Y') }} by ThaiQuran Foundation. All Rights Reserved.</span>
                             <span>
                                 <a href="{{ route('privacy-policy') }}">Privacy Policy</a>
                             </span>

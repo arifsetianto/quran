@@ -13,14 +13,14 @@
     <div class="mt-6">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             @foreach($menu as $value)
-                <a href="{{ !$value['lock'] ? $value['redirect_route'] : '#' }}" class="scale-100 p-6 bg-blue-950 dark:bg-gray-800/50 dark:bg-gradient-to-bl from-blue-700/50 via-transparent text-center dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-lg shadow-blue-500/20 dark:shadow-none transition-all duration-250 focus:outline focus:outline-2 focus:outline-blue-950">
+                <a href="{{ !$value['lock'] ? $value['redirect_route'] : '#' }}" class="scale-100 p-6 bg-{{ $value['background-color'] }}-950 dark:bg-gray-800/50 dark:bg-gradient-to-bl from-{{ $value['background-color'] }}-700/50 via-transparent text-center dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-lg shadow-{{ $value['background-color'] }}-500/20 dark:shadow-none transition-all duration-250 focus:outline focus:outline-2 focus:outline-{{ $value['background-color'] }}-950">
                     <div class="size-full">
 {{--                        <div class="h-16 w-16 bg-blue-50 dark:bg-blue-800/20 flex items-center justify-center rounded-full">--}}
 {{--                            {!! $value['icon'] !!}--}}
 {{--                        </div>--}}
 
                         <div class="w-full">
-                            <h2 class="text-xl text-center font-bold text-gold-400 dark:text-white leading-none tracking-tight items-center inline-flex">
+                            <h2 class="text-xl text-center font-bold text-{{ $value['text-title-color'] }} dark:text-white leading-none tracking-tight items-center inline-flex">
                                 {{ $value['title'] }}
                                 @if($value['lock'])
                                     <span class="flex-1 ms-3 whitespace-nowrap">
@@ -34,7 +34,7 @@
                                     </div>
                                 @endif
                             </h2>
-                            <p class="mt-2 text-gray-100 dark:text-gray-400 text-sm leading-relaxed">
+                            <p class="mt-2 text-{{ $value['text-description-color'] }} dark:text-gray-400 text-sm leading-relaxed">
                                 {{ $value['description'] }}
                             </p>
                         </div>
